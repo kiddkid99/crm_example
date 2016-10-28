@@ -1,0 +1,26 @@
+﻿@model CRM.Models.Supply
+
+@{
+    ViewBag.Title = "詳細";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>商品類別</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplyName)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Ajax.ActionLink("修改", "Edit", new { id = Model.SupplyID }, new AjaxOptions { UpdateTargetId = "panel" }) |
+    @Ajax.ActionLink("回上一頁", "Index", new AjaxOptions { UpdateTargetId = "panel" })
+</p>

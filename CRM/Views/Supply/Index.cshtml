@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CRM.Models.Supply>
+
+@{
+    ViewBag.Title = "供應商品類別列表";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>
+    @Ajax.ActionLink("建立新商品類別", "Create", new AjaxOptions { UpdateTargetId = "panel" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplyName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.SupplyName
+            </td>
+            <td>
+                @Ajax.ActionLink("修改", "Edit", new { id = item.SupplyID }, new AjaxOptions { UpdateTargetId = "panel" }) |
+                @Ajax.ActionLink("詳細", "Details", new { id = item.SupplyID }, new AjaxOptions { UpdateTargetId = "panel" }) |
+                @Ajax.ActionLink("刪除", "Delete", new { id = item.SupplyID }, new AjaxOptions { UpdateTargetId = "panel" })
+            </td>
+        </tr>
+    }
+</table>
+
